@@ -3,10 +3,14 @@ const PORT = 4000;
 const SIMPLYRETS_URL = 'https://api.simplyrets.com';
 const SIMPLYRETS_USERNAME = 'simplyrets';
 const SIMPLYRETS_PASSWORD = 'simplyrets';
+const SIMPLYRETS_HEADERS_TOTAL_COUNT = 'x-total-count';
+const SIMPLYRETS_MAX_LIMIT = 100;
 
 module.exports = {
 	PORT,
 	SIMPLYRETS_URL,
 	SIMPLYRETS_USERNAME,
 	SIMPLYRETS_PASSWORD,
+	SIMPLYRETS_HEADERS_TOTAL_COUNT,
+	SIMPLYRETS_MAX_LIMIT,
 };

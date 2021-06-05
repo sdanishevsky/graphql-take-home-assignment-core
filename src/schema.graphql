@@ -17,7 +17,7 @@ enum Sort {
 }
 
 type PropertiesResponse {
-	results: [Listing]!
+	items: [Listing]!
 	count: Int!
 }
 

@@ -1,3 +1,26 @@
+type Query {
+	info: String!
+	listing (limit: Int = 20, offset: Int = 0, sort: PropertiesSorting, cities: [String!]): PropertiesResponse
+}
+
+input PropertiesSorting {
+	listPrice: Sort
+	listDate: Sort
+	closeDate: Sort
+	beds: Sort
+	baths: Sort
+}
+
+enum Sort {
+	asc,
+	desc
+}
+
+type PropertiesResponse {
+	results: [Listing]!
+	count: Int!
+}
+
 type Listing {
 	favoriteCount: Int
 	privateRemarks: String

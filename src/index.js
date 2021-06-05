@@ -1,20 +1,13 @@
 const { ApolloServer } = require('apollo-server');
 
-const typeDefs = `
-	type Query {
-		info: String!
-	}
-`;
-
-const resolvers = {
-	Query: {
-		info: () => 'Hello World!'
-	}
-};
+const { loadFile } = require('./utils');
+const Query = require('./resolvers/Query');
 
 const server = new ApolloServer({
-	typeDefs,
-	resolvers
+	typeDefs: loadFile('./schema.graphql'),
+	resolvers: {
+		Query,
+	}
 });
 
 server.listen().then(({ url }) => {

@@ -1,22 +1,17 @@
 const { ApolloServer } = require('apollo-server');
 
 const { loadFile } = require('./utils');
+const { createContext } = require('./config');
 const Query = require('./resolvers/Query');
-const SimplyRETS = require('./services/SimplyRETS');
+const Mutation = require('./resolvers/Mutation');
 
 const server = new ApolloServer({
 	typeDefs: loadFile('./schema.graphql'),
 	resolvers: {
 		Query,
+		Mutation,
 	},
-	context: ({ req }) => {
-		return {
-			...req,
-			services: {
-				simplyRETS: new SimplyRETS()
-			},
-		};
-	}
+	context: createContext()
 });
 
 server.listen().then(({ url }) => {

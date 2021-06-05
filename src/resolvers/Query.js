@@ -3,7 +3,10 @@ function info () {
 }
 
 async function listing(parent, args, context) {
-	return await context.services.simplyRETS.loadProperties({
+	if (!context.userId) {
+		throw new Error('Unauthorized');
+	}
+	return await context.services.simplyrets.loadProperties({
 		limit: args.limit,
 		offset: args.offset,
 		cities: args.cities,

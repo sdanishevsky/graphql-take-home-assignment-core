@@ -3,6 +3,10 @@ type Query {
 	listing (limit: Int = 20, offset: Int = 0, sort: PropertiesSorting, cities: [String!]): PropertiesResponse
 }
 
+type Mutation {
+	login(email: String!, password: String!): AuthPayload
+}
+
 input PropertiesSorting {
 	listPrice: Sort
 	listDate: Sort
@@ -19,6 +23,18 @@ enum Sort {
 type PropertiesResponse {
 	items: [Listing]!
 	count: Int!
+}
+
+type AuthPayload {
+	token: String!
+	user: User!
+}
+
+type User {
+	id: ID!
+	firstName: String!
+	lastName: String!
+	email: String!
 }
 
 type Listing {

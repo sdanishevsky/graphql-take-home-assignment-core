@@ -6,6 +6,7 @@ const SIMPLYRETS_URL = 'https://api.simplyrets.com';
 const SIMPLYRETS_USERNAME = 'simplyrets';
 const SIMPLYRETS_PASSWORD = 'simplyrets';
 const SIMPLYRETS_HEADERS_TOTAL_COUNT = 'x-total-count';
+const SIMPLYRETS_DEFAULT_LIMIT = 20;
 const SIMPLYRETS_MAX_LIMIT = 100;
 
 const USERS = [
@@ -14,14 +15,14 @@ const USERS = [
 		firstName: 'User1',
 		lastName: 'User1',
 		email: 'user1@sideinc.com',
-		password: '$2a$10$yjKpFkYJYSRdKbBRryHDH.hUKsQxir5NqM25AhzfU5OIMIDZDOfli',
+		password: '$2a$10$yjKpFkYJYSRdKbBRryHDH.hUKsQxir5NqM25AhzfU5OIMIDZDOfli', // p@ssword123
 	},
 	{
 		id: '18467718-83ae-4de2-8364-92e199d52167',
 		firstName: 'User2',
 		lastName: 'User2',
 		email: 'user2@sideinc.com',
-		password: '$2a$10$yjKpFkYJYSRdKbBRryHDH.hUKsQxir5NqM25AhzfU5OIMIDZDOfli',
+		password: '$2a$10$yjKpFkYJYSRdKbBRryHDH.hUKsQxir5NqM25AhzfU5OIMIDZDOfli', // p@ssword123
 	}
 ];
 
@@ -32,6 +33,7 @@ module.exports = {
 	SIMPLYRETS_USERNAME,
 	SIMPLYRETS_PASSWORD,
 	SIMPLYRETS_HEADERS_TOTAL_COUNT,
+	SIMPLYRETS_DEFAULT_LIMIT,
 	SIMPLYRETS_MAX_LIMIT,
 	USERS,
 };

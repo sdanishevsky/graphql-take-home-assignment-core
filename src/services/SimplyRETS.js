@@ -1,12 +1,13 @@
 const axios = require('axios');
-const qs = require('qs');
 const {
 	SIMPLYRETS_URL,
 	SIMPLYRETS_USERNAME,
 	SIMPLYRETS_PASSWORD,
 	SIMPLYRETS_HEADERS_TOTAL_COUNT,
+	SIMPLYRETS_DEFAULT_LIMIT,
 	SIMPLYRETS_MAX_LIMIT,
 } = require('../constants');
+const { paramsSerializer } = require('../utils');
 
 class SimplyRETS {
 
@@ -19,9 +20,7 @@ class SimplyRETS {
 				password: SIMPLYRETS_PASSWORD,
 			},
 			params: this.formatLoadPropertiesParams(params),
-			paramsSerializer: function(params) {
-				return qs.stringify(params, { indices: false });
-			}
+			paramsSerializer,
 		});
 		return {
 			items: response.data,
@@ -32,7 +31,7 @@ class SimplyRETS {
 	formatLoadPropertiesParams(params) {
 		const defaultParams = {
 			offset: 0,
-			limit: 20,
+			limit: SIMPLYRETS_DEFAULT_LIMIT,
 		};
 		const result = { ...defaultParams };
 		if (Number.isInteger(params.offset) && params.offset >= 0) {

@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const qs = require('qs');
 
 function loadFile(filePath) {
 	return fs.readFileSync(
@@ -8,6 +9,11 @@ function loadFile(filePath) {
 	);
 }
 
+function paramsSerializer(params) {
+	return qs.stringify(params, { indices: false });
+}
+
 module.exports = {
-	loadFile
+	loadFile,
+	paramsSerializer,
 };

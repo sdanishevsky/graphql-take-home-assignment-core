@@ -19,7 +19,12 @@ class Authorization {
 
 		return {
 			token,
-			user
+			user: {
+				id: user.id,
+				firstName: user.firstName,
+				lastName: user.lastName,
+				email: user.email,
+			}
 		};
 	}
 
